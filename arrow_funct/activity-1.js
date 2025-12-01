@@ -15,6 +15,13 @@ function greet(name) {
 // 3. Write it without parentheses for the single parameter
 // 4. Test all three versions with your name
 
+let name = "Cindy";
+const greet2 = name => {
+    return "Hello " + name + "!";
+}
+
+const greet3 = name => "Hello " + name + "!";
+
 // ============================================================================
 // Problem 2: Arrow Function with Multiple Parameters
 // Create an arrow function called 'calculateArea' that takes two parameters 
@@ -26,6 +33,13 @@ function greet(name) {
 // 2. Write calculateArea with explicit return statement
 // 3. Test both with length=5, width=10
 // 4. Explain when you would use each version
+
+let width = 10;
+let length = 5;
+const calculateArea = (width, length) => {
+    return "Area: " + width * length;
+}
+const calculateArea2 = (width, length) => "Area: " + width * length;
 
 // ============================================================================
 // Problem 3: Arrow Function in Array Methods
@@ -39,6 +53,8 @@ const numbers = [1, 2, 3, 4, 5];
 // 2. Filter out numbers greater than 3
 // 3. Find the sum of all numbers (reduce)
 // 4. Chain all three operations together - what is the final result?
+
+
 
 // ============================================================================
 // Problem 4: Understanding 'this' in Arrow Functions
