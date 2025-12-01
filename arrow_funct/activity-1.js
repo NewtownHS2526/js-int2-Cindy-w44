@@ -4,6 +4,7 @@
  * Problem 1: Basic Arrow Function Conversion
  * Convert the following traditional function to an arrow function:
  */
+let name = "Cindy";
 
 function greet(name) {
     return "Hello, " + name + "!";
@@ -15,7 +16,6 @@ function greet(name) {
 // 3. Write it without parentheses for the single parameter
 // 4. Test all three versions with your name
 
-let name = "Cindy";
 const greet2 = name => {
     return "Hello " + name + "!";
 }
@@ -54,7 +54,7 @@ const numbers = [1, 2, 3, 4, 5];
 // 3. Find the sum of all numbers (reduce)
 // 4. Chain all three operations together - what is the final result?
 
-
+const squaredNumbers = numbers.map; number * number;
 
 // ============================================================================
 // Problem 4: Understanding 'this' in Arrow Functions
@@ -77,3 +77,6 @@ const person = {
 // 3. How would you fix the arrow function to correctly access person.name?
 // 4. Provide at least two different solutions
 
+// Prediction
+// The output would be the name Alice. The console.log is used both times within the arrow person, and if so the more recent one would 
+// override the older one
