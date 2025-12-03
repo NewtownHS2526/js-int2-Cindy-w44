@@ -54,7 +54,7 @@ const numbers = [1, 2, 3, 4, 5];
 // 3. Find the sum of all numbers (reduce)
 // 4. Chain all three operations together - what is the final result?
 
-const squaredNumbers = numbers.map; number * number;
+const squaredNumbers = numbers.map(numbers => numbers * numbers);
 
 // ============================================================================
 // Problem 4: Understanding 'this' in Arrow Functions

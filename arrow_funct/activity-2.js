@@ -25,6 +25,20 @@ const double = (x) => x * 2;
 // ============================================================================
 
 const scores = [95, 82, 73, 88, 67, 91, 55, 78];
+const filtered = scores.filtered(scores => scores > 75) 
+    if (scores <= 60) {
+        return "F";
+    } else if (scores <= 69) {
+        return "D";
+    } else if (scores <= 79) {
+        return "C";
+    } else if (scores <= 89) {
+        return "B";
+    } else {
+        return "A";
+    }
+ 
+
 
 // Your task:
 // 1. Filter students who scored above 75
@@ -43,6 +57,9 @@ const scores = [95, 82, 73, 88, 67, 91, 55, 78];
 // const double = createMultiplier(2);
 // console.log(double(5)); // Should output 10
 
+const createMultiplier = (number) => number * 2;
+console.log(createMultiplier);
+
 // Your task:
 // 1. Implement createMultiplier using arrow functions
 // 2. Create triple = createMultiplier(3) and test it
@@ -55,16 +72,17 @@ const scores = [95, 82, 73, 88, 67, 91, 55, 78];
 // The following code has errors. Identify and fix them:
 // ============================================================================
 
-const processData = (data) => {
-    return data.map(item => {
-        if (item > 10) {
-            return item * 2;
-        }
-        return item;
-    }).filter(item => item > 5);
-}
+//  const processData = (data) => {
+//      return data.map(item) = {
+//          if (item >= 10) {
+//              return item * 2;
+//          }
+//          return item;
+//      } 
+//      filter(item) = item > 5;
+//  }
 
-const numbers = [3, 8, 15, 22, 5];
+// const numbers = [3, 8, 15, 22, 5];
 
 // Your task:
 // 1. Identify all errors in the code above
