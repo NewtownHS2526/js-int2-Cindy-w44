@@ -72,15 +72,14 @@ console.log(createMultiplier);
 // The following code has errors. Identify and fix them:
 // ============================================================================
 
-//  const processData = (data) => {
-//      return data.map(item) = {
-//          if (item >= 10) {
-//              return item * 2;
-//          }
-//          return item;
-//      } 
-//      filter(item) = item > 5;
-//  }
+const processData = (data) => {
+    return data.map(item => {
+        if (item > 10) {
+            return item * 2;
+        }
+        return item;
+    }); filter = (item) => (item > 5);
+}
 
 // const numbers = [3, 8, 15, 22, 5];
 
@@ -90,4 +89,3 @@ console.log(createMultiplier);
 // 3. Test with the numbers array
 // 4. Challenge: Rewrite to handle edge cases like empty arrays, non-numeric values, 
 //    and null/undefined
-

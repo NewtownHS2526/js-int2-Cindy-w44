@@ -14,9 +14,44 @@ const cart = [
 
 // Your task:
 // 1. Create an arrow function to calculate total price (price * quantity) for each item
+
+const totalPrice = cart.map(item => {
+    const { name, price, quantity } = item;
+    const total = price * quantity;
+
+    return {
+        name: name,
+        total: total.toFixed(2)
+    };
+});
+
 // 2. Create an arrow function to apply a discount of 15% if quantity is 5 or more
+
+const discountThreshold = 5;
+const discountedPercent = 0.15;
+const discounted = cart.map(item => {
+    if (quantity >= discountThreshold) {
+        const discount = item.price * (1- discountedPercent);
+        return {item, price: discount};
+    } else {
+        return item;
+    }
+});
+
 // 3. Create an arrow function to add tax of 8.5% to the final price
+
+const TOTALprice = (totalPrice, discount) => {
+    return totalPrice + discount * 0.85;
+}
+
 // 4. Create an arrow function to filter out items with total less than $10
+
+const filter = (total, discount) => {
+    if (total || discount >= 10) {
+        
+    }
+}
+
 // 5. Challenge: Chain all operations together to get the final processed cart array. 
 //    Then calculate the grand total of all items after all transformations
 
@@ -85,4 +120,3 @@ const cart = [
 //    - isValidPassword (at least 8 chars, one number, one letter)
 //    - isValidPhoneNumber (format: XXX-XXX-XXXX)
 //    These should be reusable and chainable
-
