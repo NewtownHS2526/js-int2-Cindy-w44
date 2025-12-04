@@ -19,16 +19,31 @@
 // Your task:
 // 1. Create a function that takes an object {x, y} and returns the distance from origin
 //    Example: distanceFromOrigin({x: 3, y: 4}) should return 5
-// 
+
+const squareRoot = (distanceFromOrigin) => Math.sqrt(distanceFromOrigin);
+const distanceFromOrigin = (x, y) => x * x + y * y ;
+
 // 2. Create a function that takes an array [firstName, lastName, age] and returns 
 //    a formatted string: "First Name: [name], Last Name: [name], Age: [age]"
-//
+
+const info = (firstName, lastName, age) => {
+    return "First name: " + firstName;
+    return "Last name: " + lastName;
+    return "Age: " + age;
+}
+
 // 3. Create a function that takes an object with nested properties {user: {name, email}} 
 //    and extracts them to return "Name: [name], Email: [email]"
-//
+
+const information = (user) => {
+    const user = (name, email) => {
+        return "Name: " + name;
+        return "Email: " + email; 
+    }
+}
+
 // 4. Challenge: Combine all three into a function that processes user data from different 
 //    formats (object with coordinates, array format, nested object format)
-
 // ============================================================================
 // Problem 3: Arrow Functions and Event Handlers
 // Given this scenario: You have a button element that you want to add event listeners to
@@ -49,6 +64,16 @@ const button = {
 //    events. The counter should persist across page reloads using localStorage.
 //    (You'll need to use: localStorage.setItem, localStorage.getItem)
 
+element.addEventListeners("click", counter);
+element.addEventListeners("dblclick", remove);
+const counter = (number) => {
+    return number + 1;
+}
+const remove = (number) => {
+    return number - 1;
+}
+
+
 // ============================================================================
 // Problem 4: Functional Composition with Arrow Functions
 // Create a series of arrow functions that can be composed together:
@@ -63,4 +88,21 @@ const button = {
 // 5. Challenge: Write a 'compose' function that composes right-to-left
 // 6. Use both to transform the number 5 using all three operations in different orders. 
 //    What are the results?
+
+let number = 5;
+const increment = (number) => {
+    return number + 1;
+} 
+const double = (number) => {
+    return number * 2;
+}
+const square = (number) => {
+    return number * number;
+}
+const pipe = (increment, double, square) => {
+    return increment, double, square;
+}
+const compose = (square, double, increment) => {
+    return square, double, increment;
+}
 

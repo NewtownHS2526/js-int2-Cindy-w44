@@ -14,6 +14,17 @@ const cart = [
 
 // Your task:
 // 1. Create an arrow function to calculate total price (price * quantity) for each item
+
+const totalPrice = cart.map(item => {
+    const { name, price, quantity } = item;
+    const total = price * quantity;
+
+    return {
+        name: name,
+        total: total.toFixed(2);
+    };
+});
+
 // 2. Create an arrow function to apply a discount of 15% if quantity is 5 or more
 // 3. Create an arrow function to add tax of 8.5% to the final price
 // 4. Create an arrow function to filter out items with total less than $10
