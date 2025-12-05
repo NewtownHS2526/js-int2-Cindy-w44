@@ -11,6 +11,10 @@
 // 3. Create an arrow function 'formatDate' with default format parameter ("YYYY-MM-DD")
 // 4. Test each function with and without parameters
 
+const greet = (name = Guest) => {return "Hello " + name + "!"; };
+const calculateTax = (tax = 0.1, discount = 0) => {return "Tax: " + tax * 2, "Discount: " + discount;};
+const formatDate = (format = "YYYY-MM-DD") => {return "Date: " + format;}; 
+
 // ============================================================================
 // Problem 2: Arrow Functions with Rest Parameters
 // Use arrow functions with rest parameters to handle variable arguments
@@ -27,6 +31,8 @@
 //
 // 4. Challenge: Create a function 'createLogger' that returns an arrow function accepting 
 //    any number of arguments and logs them with a timestamp prefix
+
+
 
 // ============================================================================
 // Problem 3: Currying with Arrow Functions
