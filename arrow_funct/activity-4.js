@@ -21,13 +21,43 @@ const totalPrice = cart.map(item => {
 
     return {
         name: name,
-        total: total.toFixed(2);
+        total: total.toFixed(2)
     };
 });
 
 // 2. Create an arrow function to apply a discount of 15% if quantity is 5 or more
+
+const discountBreakthrough = 5;
+const discountPercent = 0.85;
+const discounted = cart.map(item => {
+    if (quantity > discountBreakthrough) {
+        const { name, price, quantity } = item;
+        const total = price * quantity;
+        return total * discountPercent;
+    } else {
+        return name;
+    }
+});
+
 // 3. Create an arrow function to add tax of 8.5% to the final price
+
+const tax = 0.015;
+const taxed = discounted(totalPrice => {
+    return {
+        total: totalPrice * tax
+    }
+});
+
+
 // 4. Create an arrow function to filter out items with total less than $10
+
+const totalIsMoreThan10 = 10;
+const totalMoney = (total => {
+    if (total > totalIsMoreThan10) {
+        return name;
+    }
+});
+
 // 5. Challenge: Chain all operations together to get the final processed cart array. 
 //    Then calculate the grand total of all items after all transformations
 
@@ -43,6 +73,27 @@ const totalPrice = cart.map(item => {
 // 3. removeItem(name) - removes an item by name
 // 4. getTotal() - calculates total price using arrow function
 // 5. applyCoupon(percent) - applies discount percentage
+
+const ShoppingCart = [
+    { name: "Pineapple", price: 7.99 },
+    { name: "Cake", price: 22.99 },
+    { name: "Tomato", price: 5.99 },
+    { name: "Pasta", price: 9.99 }
+];
+const addItem = (name, price) => {
+    return "Add item to cart?" + name + price;
+}
+const removeItem = (name) => {
+    return "Remove item from cart?" - name;
+}
+const getTotal = (name, price) => {
+    const calculateTotal = (price) => price + price + price + price;
+    return name, price, calculateTotal;
+}
+const coupon = 0.005;
+const applyCoupon = (calculateTotal, coupon) => {
+    return calculateTotal * coupon;
+}
 
 // Challenge: Implement this using both arrow functions and regular functions. 
 // Test how 'this' behaves differently. Which approach works better and why?
@@ -68,6 +119,27 @@ const totalPrice = cart.map(item => {
 //     .catch(function(error) {
 //         console.error(error);
 //     });
+
+fetch('https://api.example.com/data')
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(data) {
+        return data.filter(function(item) {
+            return item.status === 'active';
+        });
+    })
+    .then(function(activeItems) {
+        console.log(activeItems);
+    })
+    .catch(function(error) {
+        console.error(error);
+    });
+fetch('https://api.example.com/data') 
+    then = function response() {
+        return response.json();
+    } 
+
 
 // Your task:
 // 1. Rewrite the above using arrow functions for all callbacks
@@ -96,4 +168,3 @@ const totalPrice = cart.map(item => {
 //    - isValidPassword (at least 8 chars, one number, one letter)
 //    - isValidPhoneNumber (format: XXX-XXX-XXXX)
 //    These should be reusable and chainable
-

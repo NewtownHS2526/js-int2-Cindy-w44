@@ -105,4 +105,3 @@ const pipe = (increment, double, square) => {
 const compose = (square, double, increment) => {
     return square, double, increment;
 }
-

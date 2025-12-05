@@ -89,4 +89,3 @@ const processData = (data) => {
 // 3. Test with the numbers array
 // 4. Challenge: Rewrite to handle edge cases like empty arrays, non-numeric values, 
 //    and null/undefined
-
