@@ -18,7 +18,32 @@ const employees = [
 //    - Calculate average salary for a department
 //    - Give a 10% raise to employees above a certain age
 //    - Get employee names in "Last, First" format (assume single word names for simplicity)
-//
+
+const department = employees.map((department) => {
+    if (department === "IT") {
+        return name + age + salary + department;
+    } else if (department === "HR") {
+        return name + age + salary + department;
+    } else if (department === "Finance") {
+        return name + age + salary + department;
+    } else {
+        return "Not an avaliable department";
+    }
+});
+
+const departmentAvgSalary = employees.map((acc, curr) => {
+    departmentAvgSalary = acc + curr / acc;
+});
+
+const raise = employees.map((age) => {
+    if (age > 35) {
+        return salary * 1.10;
+    }
+    return salary;
+});
+
+
+
 // 2. Challenge: Create a function 'analyzeDepartment' that:
 //    - Takes a department name
 //    - Returns an object with: {dept, employeeCount, avgSalary, totalBudget, employees}

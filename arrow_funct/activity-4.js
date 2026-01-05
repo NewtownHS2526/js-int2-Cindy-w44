@@ -120,20 +120,6 @@ const applyCoupon = (calculateTotal, coupon) => {
 //         console.error(error);
 //     });
 
-<<<<<<< HEAD
-fetch('https://api.example.com/data') 
-    .then = function response() {
-        return response.json();
-    } .then = function data() {
-        return data.filter(function(item) {
-            return item.status === 'active';
-        });
-    } .then = function activeItems() {
-        console.log(activeItems);
-    } .catch(function(error) {
-        console.error(error);
-    });
-=======
 fetch('https://api.example.com/data')
     .then(function(response) {
         return response.json();
@@ -154,7 +140,6 @@ fetch('https://api.example.com/data')
         return response.json();
     } 
 
->>>>>>> f7727664282954e4900ea2ca94def586ea89f6db
 
 // Your task:
 // 1. Rewrite the above using arrow functions for all callbacks

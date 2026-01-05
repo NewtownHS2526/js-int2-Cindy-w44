@@ -24,8 +24,15 @@ const double = (x) => x * 2;
 // You need to process a list of students' grades. Write arrow functions to:
 // ============================================================================
 
+// Your task:
+// 1. Filter students who scored above 75
+// 2. Map their scores to letter grades (A: 90+, B: 80-89, C: 70-79, D: 60-69, F: <60)
+// 3. Calculate the average score of all students
+// 4. Challenge: Combine all operations to get letter grades for only passing students (75+), 
+//    then calculate the average of those passing scores
+
 const scores = [95, 82, 73, 88, 67, 91, 55, 78];
-const filtered = scores.filtered(scores => scores > 75) 
+const filtered = scores.filtered(scores => scores > 75);
     if (scores <= 60) {
         return "F";
     } else if (scores <= 69) {
@@ -38,15 +45,6 @@ const filtered = scores.filtered(scores => scores > 75)
         return "A";
     }
  
-
-
-// Your task:
-// 1. Filter students who scored above 75
-// 2. Map their scores to letter grades (A: 90+, B: 80-89, C: 70-79, D: 60-69, F: <60)
-// 3. Calculate the average score of all students
-// 4. Challenge: Combine all operations to get letter grades for only passing students (75+), 
-//    then calculate the average of those passing scores
-
 // ============================================================================
 // Problem 3: Nested Arrow Functions
 // Create a function 'createMultiplier' that takes a number and returns an arrow function.
@@ -57,8 +55,7 @@ const filtered = scores.filtered(scores => scores > 75)
 // const double = createMultiplier(2);
 // console.log(double(5)); // Should output 10
 
-const createMultiplier = (number) => number * 2;
-console.log(createMultiplier);
+
 
 // Your task:
 // 1. Implement createMultiplier using arrow functions
@@ -67,19 +64,22 @@ console.log(createMultiplier);
 //    arrow function methods: add, subtract, multiply, and divide, all using the initial 
 //    number as one operand
 
+const createMultiplier = (x) => (x * x * x);
+console.log(createMultiplier(8));
+
 // ============================================================================
 // Problem 4: Debugging Arrow Functions
 // The following code has errors. Identify and fix them:
 // ============================================================================
 
 const processData = (data) => {
-    return data.map(item => {
+    filter = (item) => (item > 5);
+    return data.map((item) => {
         if (item > 10) {
             return item * 2;
         }
         return item;
-    }); filter = (item) => (item > 5);
-}
+    })};
 
 // const numbers = [3, 8, 15, 22, 5];
 

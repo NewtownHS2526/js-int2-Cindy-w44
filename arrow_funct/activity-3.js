@@ -30,7 +30,8 @@ const info = (firstName, lastName, age) => {
     return "First name: " + firstName;
     return "Last name: " + lastName;
     return "Age: " + age;
-}
+};
+
 
 // 3. Create a function that takes an object with nested properties {user: {name, email}} 
 //    and extracts them to return "Name: [name], Email: [email]"

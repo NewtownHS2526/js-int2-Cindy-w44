@@ -23,12 +23,23 @@ const formatDate = (format = "YYYY-MM-DD") => {return "Date: " + format;};
 // Your task:
 // 1. Create an arrow function 'sumAll' that takes any number of arguments and returns their sum
 //    Example: sumAll(1, 2, 3, 4, 5) should return 15
-//
+
+const sumAll = (...args) => args.reduce((acc, curr) => acc + curr, 0);
+
 // 2. Create an arrow function 'findMax' that finds the maximum value from any number of arguments
-//
+
+const findMax = (acc, curr) => {
+    if (acc > curr) {
+        curr = acc;
+    } 
+    return curr;
+};
+
 // 3. Create an arrow function 'combineStrings' that combines any number of strings with a separator
 //    Example: combineStrings("-", "a", "b", "c") should return "a-b-c"
-//
+
+const combineStrings = ((a, b, c) => a + "-" + b + "-" + c);
+
 // 4. Challenge: Create a function 'createLogger' that returns an arrow function accepting 
 //    any number of arguments and logs them with a timestamp prefix
 
@@ -46,6 +57,9 @@ const formatDate = (format = "YYYY-MM-DD") => {return "Date: " + format;};
 //    Example: const curriedAdd = curry((a, b, c) => a + b + c);
 //             curriedAdd(1)(2)(3) should return 6
 
+const curriedAdd = curry((a, b, c) => a + b + c);
+const curriedMultiply = curry((x, y, z) => x * y * z);
+
 // ============================================================================
 // Problem 4: Arrow Functions with Closures
 // Use arrow functions to create closures that maintain state
@@ -57,13 +71,20 @@ const formatDate = (format = "YYYY-MM-DD") => {return "Date: " + format;};
 //    - decrement() - decreases counter by 1
 //    - getValue() - returns current counter value
 //    - reset() - resets counter to 0
-//
+
+const createCounter = {
+    
+
+}
+
 // 2. Create a function 'createBankAccount' with arrow function methods:
 //    - deposit(amount) - adds to balance
 //    - withdraw(amount) - subtracts from balance (can't go below 0)
 //    - getBalance() - returns current balance
 //    The balance should be private and only accessible through these methods
-//
+
+
+
 // 3. Challenge: Create a 'createGameScore' that tracks multiple players' scores using closures
 //    Methods: addScore(player, points), getScore(player), getLeader()
 
