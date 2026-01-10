@@ -21,7 +21,7 @@ const totalPrice = cart.map(item => {
 
     return {
         name: name,
-        total: total.toFixed(2)
+        total: parseFloat(total.toFixed(2))
     };
 });
 
@@ -30,19 +30,19 @@ const totalPrice = cart.map(item => {
 const discountBreakthrough = 5;
 const discountPercent = 0.85;
 const discounted = cart.map(item => {
-    if (quantity > discountBreakthrough) {
-        const { name, price, quantity } = item;
-        const total = price * quantity;
+    const { name, price, quantity } = item;
+    const total = price * quantity;
+    if (quantity >= discountBreakthrough) {
         return total * discountPercent;
     } else {
-        return name;
+        return name, total;
     }
 });
 
 // 3. Create an arrow function to add tax of 8.5% to the final price
 
-const tax = 0.015;
-const taxed = discounted(totalPrice => {
+const tax = 0.085;
+const taxed = discounted.map(totalPrice => {
     return {
         total: totalPrice * tax
     }

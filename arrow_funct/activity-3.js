@@ -20,27 +20,22 @@
 // 1. Create a function that takes an object {x, y} and returns the distance from origin
 //    Example: distanceFromOrigin({x: 3, y: 4}) should return 5
 
-const squareRoot = (distanceFromOrigin) => Math.sqrt(distanceFromOrigin);
-const distanceFromOrigin = (x, y) => x * x + y * y ;
+const distanceFromOrigin = ( {x, y} ) => Math.sqrt(x * x + y * y);
 
 // 2. Create a function that takes an array [firstName, lastName, age] and returns 
 //    a formatted string: "First Name: [name], Last Name: [name], Age: [age]"
 
 const info = (firstName, lastName, age) => {
-    return "First name: " + firstName;
-    return "Last name: " + lastName;
-    return "Age: " + age;
+    return `First name: ${firstName}, Last name: ${lastName}, Age: ${age}`;
 };
 
 
 // 3. Create a function that takes an object with nested properties {user: {name, email}} 
 //    and extracts them to return "Name: [name], Email: [email]"
 
-const information = (user) => {
-    const user = (name, email) => {
-        return "Name: " + name;
-        return "Email: " + email; 
-    }
+const information = ({user}) => {
+    const { name, email } = user;
+    return `Name: ${name}, Email: ${email}`;
 }
 
 // 4. Challenge: Combine all three into a function that processes user data from different 
@@ -65,15 +60,14 @@ const button = {
 //    events. The counter should persist across page reloads using localStorage.
 //    (You'll need to use: localStorage.setItem, localStorage.getItem)
 
-element.addEventListeners("click", counter);
-element.addEventListeners("dblclick", remove);
-const counter = (number) => {
-    return number + 1;
+const counter = () => {
+    button.counter += 1;
 }
-const remove = (number) => {
-    return number - 1;
+const resetCounter = () => {
+    button.counter = 0;
 }
-
+button.addEventListener("click", counter);
+button.addEventListener("dblclick", resetCounter);
 
 // ============================================================================
 // Problem 4: Functional Composition with Arrow Functions

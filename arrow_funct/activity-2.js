@@ -32,18 +32,14 @@ const double = (x) => x * 2;
 //    then calculate the average of those passing scores
 
 const scores = [95, 82, 73, 88, 67, 91, 55, 78];
-const filtered = scores.filtered(scores => scores > 75);
-    if (scores <= 60) {
-        return "F";
-    } else if (scores <= 69) {
-        return "D";
-    } else if (scores <= 79) {
-        return "C";
-    } else if (scores <= 89) {
-        return "B";
-    } else {
-        return "A";
-    }
+const filtered = scores.filter(score => score > 75);
+const letterGrades = filtered.map(score => {
+    if (score > 90) {return "A"; };
+    if (score > 80) {return "B"; };
+    if (score > 70) {return "C"; };
+    if (score > 60) {return "D"; };
+    return "F";
+});
  
 // ============================================================================
 // Problem 3: Nested Arrow Functions
@@ -54,9 +50,6 @@ const filtered = scores.filtered(scores => scores > 75);
 // Example usage:
 // const double = createMultiplier(2);
 // console.log(double(5)); // Should output 10
-
-
-
 // Your task:
 // 1. Implement createMultiplier using arrow functions
 // 2. Create triple = createMultiplier(3) and test it
@@ -64,8 +57,9 @@ const filtered = scores.filtered(scores => scores > 75);
 //    arrow function methods: add, subtract, multiply, and divide, all using the initial 
 //    number as one operand
 
-const createMultiplier = (x) => (x * x * x);
-console.log(createMultiplier(8));
+const createMultiplier = (x) => (y) => (x * y);
+const triple = createMultiplier(3);
+console.log(createMultiplier(8, 4));
 
 // ============================================================================
 // Problem 4: Debugging Arrow Functions

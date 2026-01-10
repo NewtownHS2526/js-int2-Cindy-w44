@@ -34,12 +34,12 @@ const greet3 = name => "Hello " + name + "!";
 // 3. Test both with length=5, width=10
 // 4. Explain when you would use each version
 
-let width = 10;
-let length = 5;
-const calculateArea = (width, length) => {
-    return "Area: " + width * length;
+let length = 10;
+let width = 5;
+const calculateArea = (length, width) => {
+    return "Area: " + length * width;
 }
-const calculateArea2 = (width, length) => "Area: " + width * length;
+const calculateArea2 = (length, width) => length * width;
 
 // ============================================================================
 // Problem 3: Arrow Function in Array Methods
@@ -54,7 +54,7 @@ const numbers = [1, 2, 3, 4, 5];
 // 3. Find the sum of all numbers (reduce)
 // 4. Chain all three operations together - what is the final result?
 
-const squaredNumbers = numbers.map(numbers => numbers * numbers);
+const squaredNumbers = numbers.map(n => n * n);
 
 // ============================================================================
 // Problem 4: Understanding 'this' in Arrow Functions

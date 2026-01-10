@@ -11,7 +11,7 @@
 // 3. Create an arrow function 'formatDate' with default format parameter ("YYYY-MM-DD")
 // 4. Test each function with and without parameters
 
-const greet = (name = Guest) => {return "Hello " + name + "!"; };
+const greet = (name = "Guest") => {return "Hello " + name + "!"; };
 const calculateTax = (tax = 0.1, discount = 0) => {return "Tax: " + tax * 2, "Discount: " + discount;};
 const formatDate = (format = "YYYY-MM-DD") => {return "Date: " + format;}; 
 
@@ -72,10 +72,23 @@ const curriedMultiply = curry((x, y, z) => x * y * z);
 //    - getValue() - returns current counter value
 //    - reset() - resets counter to 0
 
-const createCounter = {
-    
-
-}
+const createCounter = () => {
+    let counter = 0;
+    return {
+        increment: () => {
+            counter += 1;
+        },
+        decrement: () => {
+            counter -= 1;
+        },
+        getValue: () => {
+            return counter;
+        },
+        reset: () => {
+            counter = 0;
+        }
+    };
+};
 
 // 2. Create a function 'createBankAccount' with arrow function methods:
 //    - deposit(amount) - adds to balance
@@ -83,7 +96,22 @@ const createCounter = {
 //    - getBalance() - returns current balance
 //    The balance should be private and only accessible through these methods
 
-
+const createBankAccount = () => {
+    let balance = 0;
+    const deposit = (amount) => {
+        balance += amount;
+    };
+    const withdraw = (amount) => {
+        if (amount > balance) {
+            return "Insufficient balance";
+        } else {
+            balance -= amount;
+        };
+    };
+    const getBalance = () => {
+        return balance;
+    }
+};
 
 // 3. Challenge: Create a 'createGameScore' that tracks multiple players' scores using closures
 //    Methods: addScore(player, points), getScore(player), getLeader()

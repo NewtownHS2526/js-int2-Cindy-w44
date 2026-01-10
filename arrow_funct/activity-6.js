@@ -42,8 +42,6 @@ const raise = employees.map((age) => {
     return salary;
 });
 
-
-
 // 2. Challenge: Create a function 'analyzeDepartment' that:
 //    - Takes a department name
 //    - Returns an object with: {dept, employeeCount, avgSalary, totalBudget, employees}
@@ -57,18 +55,27 @@ const raise = employees.map((age) => {
 // Your task:
 // 1. Create validation arrow functions:
 //    - isRequired(value) - checks if value exists
+const isRequired = (value) => value !== "";
 //    - minLength(str, len) - checks string length
+const minLength = (str, length) => str.length >= length;
 //    - isEmail(str) - checks email format
+const isEmail = (str) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(str);
 //    - isNumber(val) - checks if number
+const isNumber = (val) => typeof val === "number";
 //    - isPositive(num) - checks if positive number
-//
+const isPositive = (num) => num > 0;
 // 2. Create a 'validateForm' function that takes an object and validation rules:
 //    Example:
 //    const rules = {
 //        email: [isRequired, isEmail],
 //        password: [isRequired, (p) => minLength(p, 8)]
 //    };
-//
+
+const rules = {
+    username: [isRequired, isUser],
+    password: [isRequired, (p) => minLength(p, 8)]
+};
+
 // 3. Challenge: Create a validator that returns error messages for each field
 //    Return format: {valid: true/false, errors: {field: ["error1", "error2"]}}
 
@@ -90,7 +97,25 @@ const products = [
 //    - Sort products by multiple criteria (category, then price)
 //    - Filter products by category
 //    - Filter products with low stock (< 10 items)
-//
+const ascending = (products) => {
+    [...products].sort((a, b) => a.price - b.price);
+};
+const descending = (products) => {
+    [...products].sort((a, b) => b.price - a.price);
+};
+const multipleCriteria = (products) => {
+    [...products].sort((a, b) => {
+        if (a.category > b.category) return -1;
+        if (a.category < b.category) return 1;
+
+        return a.price - b.price;
+    });
+}
+const category = (products, category) => {
+    products.filter((products) => products.category === category);
+};
+const lowStock = (products) => {products.stock < 10};
+
 // 2. Challenge: Create a 'smartFilter' function that:
 //    - Takes an array and multiple filter criteria
 //    - Returns filtered and sorted results
@@ -108,7 +133,52 @@ const products = [
 // 3. memoize(func) - caches function results for same inputs
 // 4. pipe(...functions) - composes functions left to right
 // 5. compose(...functions) - composes functions right to left
-//
+
+const utilities = {
+    debounce: function(func, delay) {
+        let timer;
+        return function() {
+            clearTimeout(timer);
+            timer = setTimeout(func, delay);
+        };
+    },
+    throttle: function(func, limit) {
+        let lastRun = 0;
+        return function() {
+            const now = Date.now();
+            if (now - lastRun >= limit) {
+                lastRun = now;
+                func();
+            };
+        };
+    },
+    memoize: function(func) {
+        const cache = {};
+        return function(arg) {
+            if (cache[arg]) {
+                return cache[arg];
+            }
+            const result = func(arg);
+            cache[arg] = result;
+            return result;
+        };
+    }, 
+    pipe: function(...funcs) {
+        return function(value) {
+            return funcs.reduce(function(acc, func) {
+                return func(acc);
+            }, value);
+        };
+    },
+    compose: function(...funcs) {
+        return function(value) {
+            return funcs.reverse().reduce(function(acc, func) {
+                return func(acc);
+            }, value);
+        };
+    }
+};
+
 // Challenge: Test each utility with real scenarios:
 // - Use debounce for a search input
 // - Use throttle for scroll events
